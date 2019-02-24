@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/monokai.css">
+        {% include head.html %}
+        
+        <title>
+            {% if page.displayname %}{{displayname}}{% else %}{{ page.title }}{% endif %}
+             - {{ site.title }}
+        </title>
+    </head>
+    <body>
+        <div class="row">
+            <!-- Current work around to filter out languages -->
+            {% for collection in site.collections %}
+                {% if collection.label == page.title %}
+                    {% for doc in collection.docs %}
+                    <div class="col-sm-4 card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ doc.title }}</h5>
+                            <p class="card-text">{{ doc.content }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </body>
+</html>
