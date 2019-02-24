@@ -59,7 +59,8 @@ input[type=text]:focus {
 }
 
 .content img:hover {
-    color: #2E6AF3;
     cursor: pointer;
+    -webkit-filter: none;
+    filter: grayscale(0);
 } 
   
