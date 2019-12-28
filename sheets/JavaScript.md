@@ -1,4 +1,0 @@
----
-layout: languageSheet
-title: JavaScript
----
